@@ -1,0 +1,78 @@
+﻿@page
+@model ASMT.Pages.contactModel
+@{
+    ViewData["Title"] = "contact";
+}
+
+<div class="form-container">
+    <h2>Apply Online:</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label asp-for="ContactForm.Name"></label>
+            <input  asp-for="ContactForm.Name" class="form-control" />
+            <span asp-validation-for="ContactForm.Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ContactForm.Program"></label>
+            <select asp-for="ContactForm.Program" required>
+                <option value="" disabled selected>--Select Our Course--</option>
+                <option value="BCA">BCA</option>
+                <option value="CSIT">CSIT</option>
+                <option value="BIM">BIM</option>
+            </select>
+            <span asp-validation-for="ContactForm.Program" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ContactForm.Mobile"></label>
+            <input asp-for="ContactForm.Mobile" class="form-control" />
+            <span asp-validation-for="ContactForm.Mobile" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ContactForm.Email"></label>
+            <input asp-for="ContactForm.Email" class="form-control" />
+            <span asp-validation-for="ContactForm.Email" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ContactForm.College"></label>
+            <input asp-for="ContactForm.College" class="form-control" />
+            <span asp-validation-for="ContactForm.College" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ContactForm.Address"></label>
+            <input asp-for="ContactForm.Address" class="form-control" />
+            <span asp-validation-for="ContactForm.Address" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ContactForm.Message"></label>
+            <textarea asp-for="ContactForm.Message" class="form-control" ></textarea>
+            <span asp-validation-for="ContactForm.Message" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+@if (Model.MessageSent)
+{
+    <div class="alert alert-success mt-4">
+        <h4>Thank you for your message!</h4>
+        <p><strong>Name:</strong> @Model.DName</p>
+        <p><strong>Program:</strong> @Model.DProgram</p>
+        <p><strong>Mobile:</strong> @Model.DMobile</p>
+        <p><strong>Email:</strong> @Model.DEmail</p>
+        <p><strong>College:</strong> @Model.DCollege</p>
+        <p><strong>Address:</strong> @Model.DAddress</p>
+        <p><strong>Message:</strong> @Model.DMessage</p>
+    </div>
+}
