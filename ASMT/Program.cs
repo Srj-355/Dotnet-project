@@ -6,6 +6,7 @@ builder.Services.AddRazorPages();
 var app = builder.Build();
 
 //  hello saroj vai Configure the HTTP request pipeline.
+// Test pages
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
